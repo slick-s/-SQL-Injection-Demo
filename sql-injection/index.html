@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Inject</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        <div class="container">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="Username">
+            <label><b>Password</b></label>
+            <input type="text" placeholder="Enter Password" name="Password">
+            <button type="submit">Login</button>
+        </div>
+
+        <script>
+            if (document.location.hash === '#unauthorized') {
+                document.write('<div class="unauthorized">Invalid Username or Password</div>')
+            } else if (document.location.hash === '#error') {
+                document.write('<div class="error">An error occured</div>')
+            }
+        </script>
+    </form>
+</body>
+</html>
